@@ -2,6 +2,10 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+
+    if current_user
+      @review = @product.reviews.build
+    end
   end
 
   def show
